@@ -1,4 +1,4 @@
-FROM jboss/base-jdk:8
+FROM fabric8/java-jboss-openjdk8-jdk:1.2.1
 
 ENV KEYCLOAK_VERSION 2.3.0.Final
 # Enables signals getting passed from startup script to JVM
