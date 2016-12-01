@@ -1482,7 +1482,7 @@
   "accessCodeLifespanLogin" : 1800,
   "enabled" : true,
   "sslRequired" : "none",
-  "registrationAllowed" : true,
+  "registrationAllowed" : false,
   "registrationEmailAsUsername" : false,
   "rememberMe" : false,
   "verifyEmail" : false,

@@ -1,6 +1,6 @@
 FROM fabric8/java-jboss-openjdk8-jdk:1.2.1
 
-ENV KEYCLOAK_VERSION 2.3.0.Final
+ENV KEYCLOAK_VERSION 2.4.0.Final
 # Enables signals getting passed from startup script to JVM
 # ensuring clean shutdown when container is stopped.
 ENV LAUNCH_JBOSS_IN_BACKGROUND 1
@@ -25,6 +25,7 @@ USER jboss
 RUN cd /opt/jboss/ && curl -L https://downloads.jboss.org/keycloak/$KEYCLOAK_VERSION/keycloak-$KEYCLOAK_VERSION.tar.gz | tar zx && mv /opt/jboss/keycloak-$KEYCLOAK_VERSION /opt/jboss/keycloak
 
 ADD helloworldmsa.json /opt/jboss/keycloak/
+ADD execute.sh /opt/jboss/keycloak/bin/
 ADD register-clients.sh /opt/jboss/
 
 ADD setLogLevel.xsl /opt/jboss/keycloak/
@@ -34,6 +35,4 @@ ENV JBOSS_HOME /opt/jboss/keycloak
 
 EXPOSE 8080
 
-ENTRYPOINT [ "/opt/jboss/keycloak/bin/standalone.sh" ]
-
-CMD ["-b", "0.0.0.0", "-Dkeycloak.migration.action=import","-Dkeycloak.migration.provider=singleFile","-Dkeycloak.migration.file=/opt/jboss/keycloak/helloworldmsa.json","-Dkeycloak.migration.strategy=OVERWRITE_EXISTING"]
+CMD [ "/opt/jboss/keycloak/bin/execute.sh" ]
