@@ -5,7 +5,7 @@ This Repository creates a container that starts KeyCloak.
 
 During the startup, the file `helloworldmsa.json` that containes the helloworld-msa Realm is imported.
 
-After the startup it used `$KEYCLOAK_USER` and `$KEYCLOAK_PASSWORD environemtn variables to create the admin credentials.
+After the startup it used `$KEYCLOAK_USER` and `$KEYCLOAK_PASSWORD` environemtn variables to create the admin credentials.
 
 The script register-clients.sh is also executed to create a client for the frontend. 
 
