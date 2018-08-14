@@ -1,6 +1,6 @@
-FROM fabric8/java-jboss-openjdk8-jdk:1.3.1
+FROM fabric8/java-jboss-openjdk8-jdk:1.5.1
 
-ENV KEYCLOAK_VERSION 3.1.0.Final
+ENV KEYCLOAK_VERSION 4.2.1.Final
 # Enables signals getting passed from startup script to JVM
 # ensuring clean shutdown when container is stopped.
 ENV LAUNCH_JBOSS_IN_BACKGROUND 1
